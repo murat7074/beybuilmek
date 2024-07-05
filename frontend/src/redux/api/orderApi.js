@@ -7,8 +7,8 @@ export const orderApi = createApi({
   //   credentials: 'include', // Include credentials (cookies) in requests
   // }),
   baseQuery: fetchBaseQuery({
-  baseUrl:'https://beybuilmek.onrender.com/api/v1',
-  credentials: 'include'
+  baseUrl:'api/v1',
+  // credentials: 'include'
 }),
 
   tagTypes: ['Order', 'MyOrder', 'AdminOrders', 'User', 'Products'],

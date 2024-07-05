@@ -8,8 +8,8 @@ export const productApi = createApi({
   //   credentials: 'include', // Include credentials (cookies) in requests
   //   }),
     baseQuery: fetchBaseQuery({
-  baseUrl:'https://beybuilmek.onrender.com/api/v1',
-  credentials: 'include'
+  baseUrl:'api/v1',
+  // credentials: 'include'
 }),
 
     tagTypes: [

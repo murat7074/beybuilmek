@@ -28,19 +28,19 @@ if (process.env.NODE_ENV !== 'PRODUCTION') {
   dotenv.config({ path: 'backend/config/config.env' })
 }
 
-app.set('trust proxy', 1) // Proxy ayarını güven
+// app.set('trust proxy', 1) // Proxy ayarını güven
 
-// Helmet Middleware for securing HTTP headers with Content Security Policy
-app.use(
-  helmet({
-    contentSecurityPolicy: {
-      useDefaults: true,
-      directives: {
-        'img-src': ["'self'", 'data:', 'https://res.cloudinary.com'],
-      },
-    },
-  })
-)
+// // Helmet Middleware for securing HTTP headers with Content Security Policy
+// app.use(
+//   helmet({
+//     contentSecurityPolicy: {
+//       useDefaults: true,
+//       directives: {
+//         'img-src': ["'self'", 'data:', 'https://res.cloudinary.com'],
+//       },
+//     },
+//   })
+// )
 
 // // CORS Middleware
 // const allowedOrigins = ['http://localhost:5173', 'https://beybuilmek.com']
