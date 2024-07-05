@@ -42,19 +42,19 @@ app.use(
 );
 
 // CORS Middleware
-const allowedOrigins = ['http://localhost:5173', 'https://fullstack-deneme.onrender.com'];
-const options = {
-  origin: (origin, callback) => {
-    if (allowedOrigins.includes(origin) || !origin) {
-      callback(null, true);
-    } else {
-      callback(new Error('Not allowed by CORS'));
-    }
-  },
-  optionsSuccessStatus: 200,
-  credentials: true,
-};
-app.use(cors(options));
+// const allowedOrigins = ['http://localhost:5173', 'https://fullstack-deneme.onrender.com'];
+// const options = {
+//   origin: (origin, callback) => {
+//     if (allowedOrigins.includes(origin) || !origin) {
+//       callback(null, true);
+//     } else {
+//       callback(new Error('Not allowed by CORS'));
+//     }
+//   },
+//   optionsSuccessStatus: 200,
+//   credentials: true,
+// };
+// app.use(cors(options));
 
 // Rate Limiting Middleware
 const limiter = rateLimit({
