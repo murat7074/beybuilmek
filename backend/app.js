@@ -101,6 +101,7 @@ app.use('/api/v1', (req, res, next) => {
   next();
 });
 
+// Statik dosyaların sunumu
 if (process.env.NODE_ENV === 'PRODUCTION') {
   app.use(express.static(path.join(__dirname, '../frontend/dist'), {
     maxAge: '1d',
