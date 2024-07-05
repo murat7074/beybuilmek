@@ -7,7 +7,7 @@ export const orderApi = createApi({
   //   credentials: 'include', // Include credentials (cookies) in requests
   // }),
   baseQuery: fetchBaseQuery({
-  baseUrl:'https://fullstack-deneme.onrender.com/api/v1',
+  baseUrl:'https://beybuilmek.onrender.com/api/v1',
   credentials: 'include'
 }),
 
