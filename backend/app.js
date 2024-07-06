@@ -29,34 +29,34 @@ if (process.env.NODE_ENV !== 'PRODUCTION') {
 
 app.use(express.static(path.join(__dirname, '../frontend/dist')))
 
-// app.set('trust proxy', 1) // Proxy ayarını güven
+app.set('trust proxy', 1) // Proxy ayarını güven
 
-// // Helmet Middleware for securing HTTP headers with Content Security Policy
-// app.use(
-//   helmet({
-//     contentSecurityPolicy: {
-//       useDefaults: true,
-//       directives: {
-//         'img-src': ["'self'", 'data:', 'https://res.cloudinary.com'],
-//       },
-//     },
-//   })
-// )
+// Helmet Middleware for securing HTTP headers with Content Security Policy
+app.use(
+  helmet({
+    contentSecurityPolicy: {
+      useDefaults: true,
+      directives: {
+        'img-src': ["'self'", 'data:', 'https://res.cloudinary.com'],
+      },
+    },
+  })
+)
 
-// // CORS Middleware
-// const allowedOrigins = ['http://localhost:5173', 'https://beybuilmek.com']
-// const options = {
-//   origin: (origin, callback) => {
-//     if (allowedOrigins.includes(origin) || !origin) {
-//       callback(null, true)
-//     } else {
-//       callback(new Error('Not allowed by CORS'))
-//     }
-//   },
-//   optionsSuccessStatus: 200,
-//   credentials: true, // Allow cookies to be sent
-// }
-// app.use(cors(options))
+// CORS Middleware
+const allowedOrigins = ['http://localhost:5173', 'https://beybuilmek.com']
+const options = {
+  origin: (origin, callback) => {
+    if (allowedOrigins.includes(origin) || !origin) {
+      callback(null, true)
+    } else {
+      callback(new Error('Not allowed by CORS'))
+    }
+  },
+  optionsSuccessStatus: 200,
+  credentials: true, // Allow cookies to be sent
+}
+app.use(cors(options))
 
 // Rate Limiting Middleware
 const limiter = rateLimit({
