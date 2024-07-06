@@ -1,4 +1,3 @@
-
 import express from 'express'
 const app = express()
 import dotenv from 'dotenv'
@@ -27,6 +26,8 @@ process.on('uncaughtException', (err) => {
 if (process.env.NODE_ENV !== 'PRODUCTION') {
   dotenv.config({ path: 'backend/config/config.env' })
 }
+
+app.use(express.static(path.join(__dirname, '../frontend/dist')))
 
 // app.set('trust proxy', 1) // Proxy ayarını güven
 
@@ -100,15 +101,6 @@ import paymentRoutes from './routes/payment.js'
 //   res.sendFile(path.resolve(__dirname, '../frontend/dist/index.html'))
 // })
 
-if (process.env.NODE_ENV === 'PRODUCTION') {
-  app.use(express.static(path.join(__dirname, '../frontend/dist')))
-
-  app.get('*', (req, res) => {
-    res.sendFile(path.resolve(__dirname, '../frontend/dist','index.html'))
-  })
-}
-
-
 // app.get('*', (req, res) => {
 //   res.sendFile(path.resolve(__dirname,"./client/build","index.html"));
 // });
@@ -120,6 +112,10 @@ app.use('/api/v1', productRoutes)
 app.use('/api/v1', authRoutes)
 app.use('/api/v1', orderRoutes)
 app.use('/api/v1', paymentRoutes)
+
+app.get('*', (req, res) => {
+  res.sendFile(path.resolve(__dirname, '../frontend/dist', 'index.html'))
+})
 
 // Error Middleware
 app.use(errorMiddleware)
