@@ -9,7 +9,7 @@ export const authApi = createApi({
   // }),
   baseQuery: fetchBaseQuery({
   baseUrl:'api/v1',
-  // credentials: 'include'
+  credentials: 'include'
 }),
 
   endpoints: (builder) => ({

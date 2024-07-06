@@ -9,7 +9,7 @@ export const userApi = createApi({
   // }),
     baseQuery: fetchBaseQuery({
   baseUrl:'api/v1',
-  // credentials: 'include'
+  credentials: 'include'
 }),
 
   tagTypes: ['User', 'AdminUsers', 'AdminUser', 'AdminMessages'],
