@@ -23,18 +23,6 @@
 
 
 
-// import { defineConfig } from 'vite'
-// import react from '@vitejs/plugin-react'
-
-// export default defineConfig({
-//   plugins: [react()],
-//   server: {
-//     proxy: {
-//       '/api':"http://localhost:5000/"
-//     },
-//   },
-// })
-
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
@@ -42,11 +30,8 @@ export default defineConfig({
   plugins: [react()],
   server: {
     proxy: {
-      '/api': {
-        target: 'https://beybuilmek.onrender.com',
-        secure: true, // HTTPS kullanılmasını sağlar
-        credentials: 'include',
-      },
+      '/api':"http://localhost:5000/"
     },
   },
 })
+

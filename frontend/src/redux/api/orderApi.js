@@ -8,7 +8,7 @@ export const orderApi = createApi({
   // }),
   baseQuery: fetchBaseQuery({
   baseUrl:'',
-  credentials: 'include'
+  // credentials: 'include'
 }),
 
   tagTypes: ['Order', 'MyOrder', 'AdminOrders', 'User', 'Products'],

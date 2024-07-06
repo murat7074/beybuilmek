@@ -57,7 +57,7 @@ export const newProduct = controllerFunction(async (req, res) => {
 // Get products - ADMIN   =>  /api/v1/products-all
 export const getProductsAll = catchAsyncErrors(async (req, res, next) => {
 
-  console.log("hello");
+ 
   const products = await Product.find()
 
   res.status(200).json({
@@ -76,7 +76,7 @@ export const getAdminProducts = catchAsyncErrors(async (req, res, next) => {
 // Get products - ADMIN   =>  /api/v1/products-featured
 export const getProductsFeatured = catchAsyncErrors(async (req, res, next) => {
 
-  console.log("hello all");
+  
   const products = await Product.find()
 
   const featuredProducts = products.filter((item) => item.featured !== false)
