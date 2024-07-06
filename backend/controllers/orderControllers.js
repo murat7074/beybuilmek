@@ -211,8 +211,7 @@ export const newOrder = catchAsyncErrors(async (req, res, next) => {
 
 // Get current user orders  =>  /api/v1/me/orders
 export const myOrders = catchAsyncErrors(async (req, res, next) => {
-  console.log('hello myorders')
-  console.log(req.user._id)
+
   const orders = await Order.find({ user: req.user._id })
 
   res.status(200).json({
@@ -238,7 +237,7 @@ export const getOrderDetails = catchAsyncErrors(async (req, res, next) => {
 
 // Get all orders - ADMIN  =>  /api/v1/admin/orders
 export const allOrders = catchAsyncErrors(async (req, res, next) => {
-  console.log('hello admin orders')
+
   const orders = await Order.find()
 
   res.status(200).json({

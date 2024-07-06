@@ -76,7 +76,8 @@ export const stripeCheckoutSession = catchAsyncErrors(async (req, res, next) => 
         },
         unit_amount: unit_amount_exceptTax,
       },
-      tax_rates: ['txr_1PRHH7JbmmMSw0UfdNmtpHfO'], // 8%
+      // tax_rates: ['txr_1PRHH7JbmmMSw0UfdNmtpHfO'], // 8%  // hanife
+      tax_rates: ['txr_1POKK3LXzmlVNCwtKVPkHyNV'], // 8%  // benim
       quantity: item.amount,
     };
   });
@@ -85,10 +86,17 @@ export const stripeCheckoutSession = catchAsyncErrors(async (req, res, next) => 
   const shippingInvoiceInfo = body?.shippingInvoiceInfo;
   const shippingInvoiceInfoString = JSON.stringify(shippingInvoiceInfo);
 
+  // hanife
+  // const shipping_rate =
+  //   body.itemsPrice >= 200
+  //     ? 'shr_1PRHMzJbmmMSw0UfWBcGzcEc' // ==> 0$ stripe da bu rakamlar tanımlı
+  //     : 'shr_1PRHPYJbmmMSw0UfsKoqlRvY'; // ==> 25$
+
+  // benim
   const shipping_rate =
     body.itemsPrice >= 200
-      ? 'shr_1PRHMzJbmmMSw0UfWBcGzcEc' // ==> 0$ stripe da bu rakamlar tanımlı
-      : 'shr_1PRHPYJbmmMSw0UfsKoqlRvY'; // ==> 25$
+      ? 'shr_1P4JKHLXzmlVNCwtqdF2oyKf' // ==> 0$ stripe da bu rakamlar tanımlı
+      : 'shr_1P4JKoLXzmlVNCwty8x65ppx'; // ==> 25$
 
   const session = await stripe.checkout.sessions.create({
     payment_method_types: ['card'],
