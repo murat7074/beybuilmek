@@ -7,7 +7,7 @@ export const orderApi = createApi({
   //   credentials: 'include', // Include credentials (cookies) in requests
   // }),
   baseQuery: fetchBaseQuery({
-  baseUrl:'',
+  baseUrl:'api/v1',
   // credentials: 'include'
 }),
 

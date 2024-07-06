@@ -32,16 +32,20 @@ app.use(express.static(path.join(__dirname, '../frontend/dist')))
 // app.set('trust proxy', 1) // Proxy ayarını güven
 
 // Helmet Middleware for securing HTTP headers with Content Security Policy
-app.use(
-  helmet({
-    contentSecurityPolicy: {
-      useDefaults: true,
-      directives: {
-        'img-src': ["'self'", 'data:', 'https://res.cloudinary.com'],
-      },
-    },
-  })
-)
+
+app.use(helmet())
+
+
+// app.use(
+//   helmet({
+//     contentSecurityPolicy: {
+//       useDefaults: true,
+//       directives: {
+//         'img-src': ["'self'", 'data:', 'https://res.cloudinary.com'],
+//       },
+//     },
+//   })
+// )
 
 // CORS Middleware
 // const allowedOrigins = ['http://localhost:5173', 'https://beybuilmek.com']

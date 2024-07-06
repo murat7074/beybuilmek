@@ -29,7 +29,6 @@ export const newOrder = catchAsyncErrors(async (req, res, next) => {
     paymentInfo,
   } = req.body
 
- 
   const errors = []
 
   // 2. Adım: Sipariş Edilen Ürünleri Kontrol Etme
@@ -110,8 +109,6 @@ export const newOrder = catchAsyncErrors(async (req, res, next) => {
     parseFloat(newItemsPrice) +
     parseFloat(shippingAmount)
   ).toFixed(2)
-
-
 
   //Sipariş kaydetme ve diğer işlemler buraya gelecek
 
@@ -214,6 +211,8 @@ export const newOrder = catchAsyncErrors(async (req, res, next) => {
 
 // Get current user orders  =>  /api/v1/me/orders
 export const myOrders = catchAsyncErrors(async (req, res, next) => {
+  console.log('hello myorders')
+  console.log(req.user._id)
   const orders = await Order.find({ user: req.user._id })
 
   res.status(200).json({
@@ -228,7 +227,6 @@ export const getOrderDetails = catchAsyncErrors(async (req, res, next) => {
     'name email' // name ve email
   )
 
-
   if (!order) {
     return next(new ErrorHandler('Sipariş Bulunamdı.', 404))
   }
@@ -240,6 +238,7 @@ export const getOrderDetails = catchAsyncErrors(async (req, res, next) => {
 
 // Get all orders - ADMIN  =>  /api/v1/admin/orders
 export const allOrders = catchAsyncErrors(async (req, res, next) => {
+  console.log('hello admin orders')
   const orders = await Order.find()
 
   res.status(200).json({
@@ -255,7 +254,6 @@ export const updateOrder = catchAsyncErrors(async (req, res, next) => {
     return next(new ErrorHandler('Sipariş Bulunamdı.', 404))
   }
 
- 
   let productNotFound = false
 
   if (productNotFound) {
@@ -292,14 +290,12 @@ export const updateOrder = catchAsyncErrors(async (req, res, next) => {
     const shippedNoForEmail = order?.shippedNo
     const shippedFirmForEmail = order?.shippedFirm
 
-  
-
     const message = orderShippedTemplate(
       userShippingInfo,
       orderTotals,
       orderProducts,
       shippedNoForEmail,
-      shippedFirmForEmail,
+      shippedFirmForEmail
     )
 
     const userInfo = await User.findOne({ _id: order.user })
@@ -329,8 +325,6 @@ export const updateOrder = catchAsyncErrors(async (req, res, next) => {
     }
 
     const userShippingInfo = order.shippingInfo
-
-    
 
     const message = orderDeliveredTemplateForCustomer(
       userShippingInfo,
@@ -508,12 +502,11 @@ function getDatesBetween(startDate, endDate) {
 
 // Get Sales Data  =>  /api/v1/admin/get_sales
 export const getSales = catchAsyncErrors(async (req, res, next) => {
-
-  console.log("hello");
+  console.log('hello')
   const startDate = new Date(req.query.startDate)
   const endDate = new Date(req.query.endDate)
 
-  console.log(startDate,endDate);
+  console.log(startDate, endDate)
 
   startDate.setUTCHours(0, 0, 0, 0)
   endDate.setUTCHours(23, 59, 59, 999)
@@ -565,7 +558,6 @@ export const returnRequestOrder = catchAsyncErrors(async (req, res, next) => {
   user.userMessages.push(userMessage)
   await user.save()
 
-
   //SEND EMAIL
 
   const orderProducts = order.orderItems
@@ -591,8 +583,6 @@ export const returnRequestOrder = catchAsyncErrors(async (req, res, next) => {
     message,
     title
   )
-
-
 
   await brevoEmailSender({
     email: user?.email,
