@@ -8,7 +8,7 @@ export const authApi = createApi({
   //   credentials: 'include', // Include credentials (cookies) in requests
   // }),
   baseQuery: fetchBaseQuery({
-  baseUrl:'api/v1',
+  baseUrl:'https://beybuilmek.onrender.com/api/v1',
   // credentials: 'include'
 }),
 
