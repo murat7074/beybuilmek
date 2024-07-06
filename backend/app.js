@@ -33,19 +33,19 @@ app.use(express.static(path.join(__dirname, '../frontend/dist')))
 
 // Helmet Middleware for securing HTTP headers with Content Security Policy
 
-app.use(helmet())
 
 
-// app.use(
-//   helmet({
-//     contentSecurityPolicy: {
-//       useDefaults: true,
-//       directives: {
-//         'img-src': ["'self'", 'data:', 'https://res.cloudinary.com'],
-//       },
-//     },
-//   })
-// )
+
+app.use(
+  helmet({
+    contentSecurityPolicy: {
+      useDefaults: true,
+      directives: {
+        'img-src': ["'self'", 'data:', 'https://res.cloudinary.com'],
+      },
+    },
+  })
+)
 
 // CORS Middleware
 // const allowedOrigins = ['http://localhost:5173', 'https://beybuilmek.com']
