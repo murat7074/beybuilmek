@@ -93,7 +93,7 @@ const Products = () => {
 
   return (
     <main className='align-page min-h-screen'>
-      <MetaData
+      {/* <MetaData
         title='En İyi Ürünleri Al'
         description={
           'Beybuilmek - Örgü, elişi, bayan çanta, çocuk çanta, çocuk kıyafet ve bebek kıyafetleri. Kaliteli el emeği ürünleri.'
@@ -102,7 +102,7 @@ const Products = () => {
           'örgü, elişi, bayan çanta, çocuk çanta, çocuk kıyafet, bebek kıyafet'
         }
         canonicalUrl={window.location.href}
-      />
+      /> */}
       <div className='flex gap-x-4 mt-0 '>
         <Filters />
 

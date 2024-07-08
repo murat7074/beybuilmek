@@ -501,7 +501,7 @@ function getDatesBetween(startDate, endDate) {
 
 // Get Sales Data  =>  /api/v1/admin/get_sales
 export const getSales = catchAsyncErrors(async (req, res, next) => {
-  console.log('hello')
+  
   const startDate = new Date(req.query.startDate)
   const endDate = new Date(req.query.endDate)
 

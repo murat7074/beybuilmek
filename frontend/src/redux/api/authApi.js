@@ -3,13 +3,10 @@ import { userApi } from './userApi'
 
 export const authApi = createApi({
   reducerPath: 'authApi',
-  // baseQuery: fetchBaseQuery({
-  //   baseUrl: 'http://localhost:5000/api/v1',
-  //   credentials: 'include', // Include credentials (cookies) in requests
-  // }),
+
   baseQuery: fetchBaseQuery({
   baseUrl:'https://beybuilmek.onrender.com/api/v1',
-  // credentials: 'include'
+
 }),
 
   endpoints: (builder) => ({

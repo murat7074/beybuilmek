@@ -1,0 +1,14 @@
+User-agent: *
+Allow: /
+Disallow: /checkout
+Disallow: /me
+Disallow: /admin
+Disallow: /cart
+Disallow: /confirm_order
+Disallow: /shipping
+Disallow: /payment_method
+
+Sitemap: https://beybuilmek.onrender.com/sitemap.xml
+
+
+

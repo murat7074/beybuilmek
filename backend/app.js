@@ -5,7 +5,6 @@ import cookieParser from 'cookie-parser'
 import { connectDatabase } from './config/dbConnect.js'
 import errorMiddleware from './middlewares/errors.js'
 import helmet from 'helmet'
-import cors from 'cors'
 import rateLimit from 'express-rate-limit'
 import mongoSanitize from 'express-mongo-sanitize'
 import xss from 'xss-clean'
@@ -29,11 +28,8 @@ if (process.env.NODE_ENV !== 'PRODUCTION') {
 
 app.use(express.static(path.join(__dirname, '../frontend/dist')))
 
-// app.set('trust proxy', 1) // Proxy ayarını güven
 
 // Helmet Middleware for securing HTTP headers with Content Security Policy
-
-
 
 
 app.use(
@@ -47,20 +43,7 @@ app.use(
   })
 )
 
-// CORS Middleware
-// const allowedOrigins = ['http://localhost:5173', 'https://beybuilmek.com']
-// const options = {
-//   origin: (origin, callback) => {
-//     if (allowedOrigins.includes(origin) || !origin) {
-//       callback(null, true)
-//     } else {
-//       callback(new Error('Not allowed by CORS'))
-//     }
-//   },
-//   optionsSuccessStatus: 200,
-//   credentials: true, // Allow cookies to be sent
-// }
-// app.use(cors(options))
+
 
 // Rate Limiting Middleware
 const limiter = rateLimit({
@@ -99,18 +82,7 @@ import authRoutes from './routes/auth.js'
 import orderRoutes from './routes/order.js'
 import paymentRoutes from './routes/payment.js'
 
-// app.use(express.static(path.join(__dirname, '../frontend/dist')))
 
-// app.get('*', (req, res) => {
-//   res.sendFile(path.resolve(__dirname, '../frontend/dist/index.html'))
-// })
-
-// app.get('*', (req, res) => {
-//   res.sendFile(path.resolve(__dirname,"./client/build","index.html"));
-// });
-// app.get("/",(req,res)=>{
-
-// })
 
 app.use('/api/v1', productRoutes)
 app.use('/api/v1', authRoutes)

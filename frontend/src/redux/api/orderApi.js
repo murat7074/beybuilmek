@@ -2,13 +2,10 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 
 export const orderApi = createApi({
   reducerPath: 'orderApi',
-  // baseQuery: fetchBaseQuery({
-  //   baseUrl: 'http://localhost:5000/api/v1',
-  //   credentials: 'include', // Include credentials (cookies) in requests
-  // }),
+
   baseQuery: fetchBaseQuery({
    baseUrl:'https://beybuilmek.onrender.com/api/v1',
-  // credentials: 'include'
+ 
 }),
 
   tagTypes: ['Order', 'MyOrder', 'AdminOrders', 'User', 'Products'],

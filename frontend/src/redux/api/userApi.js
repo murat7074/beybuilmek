@@ -3,13 +3,10 @@ import { setUser, setIsAuthenticated, setLoading } from '../features/userSlice'
 
 export const userApi = createApi({
   reducerPath: 'userApi',
-  // baseQuery: fetchBaseQuery({
-  //  baseUrl: 'http://localhost:5000/api/v1',
-  //   credentials: 'include', // Include credentials (cookies) in requests
-  // }),
+
     baseQuery: fetchBaseQuery({
   baseUrl:'https://beybuilmek.onrender.com/api/v1',
-  // credentials: 'include'
+  
 }),
 
   tagTypes: ['User', 'AdminUsers', 'AdminUser', 'AdminMessages'],
