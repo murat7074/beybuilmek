@@ -29,8 +29,8 @@ const Product = ({
         title={name}
         description={description}
         keywords='örgü, elişi, bayan çanta, çocuk çanta, çocuk kıyafet, bebek kıyafet'
-        canonicalUrl={window.location.href}
-        imageUrl={image} // İsteğe bağlı: spesifik bir görsel URL'si sağlayabilirsiniz
+        canonicalUrl={`${window.location.origin}/products`}
+        imageUrl={image || "images/bir.jpg"} // İsteğe bağlı: spesifik bir görsel URL'si sağlayabilirsiniz
       />
 
       <Link

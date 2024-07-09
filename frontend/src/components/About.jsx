@@ -12,7 +12,7 @@ const About = () => {
         keywords={
           'hakkımızda, beybuilmek, ev hanımları, girişimcilik, el işi, kıyafet'
         }
-         canonicalUrl={window.location.href} 
+        canonicalUrl={`${window.location.origin}/about`}
       />
       <div>
         <div className='hero bg-base-50'>

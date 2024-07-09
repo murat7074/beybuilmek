@@ -9,7 +9,6 @@ import { Link } from 'react-router-dom'
 
 import StarRatings from 'react-star-ratings'
 
-
 const Home = () => {
   const { data, isLoading, error, isError } = useGetProductsFeaturedQuery()
 
@@ -33,13 +32,25 @@ const Home = () => {
         keywords={
           'örgü, elişi, bayan çanta, çocuk çanta, çocuk kıyafet, bebek kıyafet'
         }
-        canonicalUrl={window.location.href}
+        canonicalUrl={'https://beybuilmek.onrender.com/'}
       />
+
+      {/* <MetaData
+        title={'Ana Sayfa'}
+        description={
+          'Beybuilmek - Örgü, elişi, bayan çanta, çocuk çanta, çocuk kıyafet ve bebek kıyafetleri. Kaliteli el emeği ürünleri.'
+        }
+        keywords={
+          'örgü, elişi, bayan çanta, çocuk çanta, çocuk kıyafet, bebek kıyafet'
+        }
+        canonicalUrl={window.location.href}
+      /> */}
+
       <div className='mt-2 p-8 rounded shadow-md grid gap-x-4 gap-y-2 grid-cols-1 lg:grid-cols-2 '>
         <div className='items-center max-w-[650px]'>
           <h1 className='text-2xl font-bold text-blue-600 mb-4'>BEYBUİLMEK</h1>
 
-           <p className='text-sm md:text-base '>
+          <p className='text-sm md:text-base '>
             Örgü ninelerimizden, annelerimizden, halalarımızdan ve
             teyzelerimizden bize kalan bir tutkudur. Çocukken onlardan aldığımız
             bir kazak, hırka vb. bize sadece bir hediye değil eşsiz bir armağan
@@ -50,7 +61,6 @@ const Home = () => {
             çıkarabilirsiniz.
           </p>
         </div>
-        
 
         <div className='max-w-[650px] items-center mx-auto '>
           <img
@@ -85,13 +95,11 @@ const Home = () => {
                     src={image}
                     alt={name}
                   />
-
-
-
-
                 </figure>
                 <div className='card-body mx-auto max-w-80 lg:max-w-[340px] '>
-                  <h2 className='flex items-center gap-2 text-lg leading-6 font-medium'>{name}</h2>
+                  <h2 className='flex items-center gap-2 text-lg leading-6 font-medium'>
+                    {name}
+                  </h2>
                   <p className='text-sm'>{description}</p>
                   <div className='d-flex'>
                     <StarRatings
@@ -125,4 +133,3 @@ const Home = () => {
 }
 
 export default Home
-

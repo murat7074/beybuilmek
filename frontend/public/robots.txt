@@ -6,9 +6,15 @@ Disallow: /admin
 Disallow: /cart
 Disallow: /confirm_order
 Disallow: /shipping
+Disallow: /invoice
 Disallow: /payment_method
+Disallow: /verify-email
+Disallow: /password
 
 Sitemap: https://beybuilmek.onrender.com/sitemap.xml
 
 
 
+ 
+
+ 
